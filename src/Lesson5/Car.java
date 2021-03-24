@@ -5,6 +5,13 @@ import java.util.concurrent.CyclicBarrier;
 public class Car implements Runnable {
     private static int CARS_COUNT;
     private static boolean flagWin;
+    public static void setFlagWin(boolean flagWin) {
+        Car.flagWin = flagWin;
+    }
+
+
+
+
     private CyclicBarrier cb;
     static {
         CARS_COUNT = 0;
@@ -13,15 +20,16 @@ public class Car implements Runnable {
     private int speed;
     private String name;
 
-    public static void setFlagWin(boolean flagWin) {
-        Car.flagWin = flagWin;
-    }
+
 
     public String getName() {
         return name;
     }
     public int getSpeed() {
         return speed;
+    }
+    public  boolean getFlagWin() {
+        return flagWin;
     }
     public Car(Race race, int speed,CyclicBarrier cb) {
         this.race = race;
